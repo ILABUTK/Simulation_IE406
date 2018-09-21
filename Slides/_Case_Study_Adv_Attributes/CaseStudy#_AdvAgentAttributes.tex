@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage[top=1.03in, bottom=0.51in, left=0.93in, right=0.92in]{geometry}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6} 
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}  
+\usepackage{pdfpages}
+
+%wrapfig
+\usepackage{wrapfig}
+\usepackage{lipsum}  % generates filler text
+
+\renewcommand{\familydefault}{\sfdefault} 
+
+\renewcommand{\labelenumi}{\Roman{enumi}. }
+
+\begin{document}
+\definecolor{orange}{rgb}{0.9648,0.4960,0}
+
+\begin{figure}[ht]
+\begin{minipage}[t]{0.40\linewidth}
+\centering
+\raisebox{-\height}{\includegraphics[width=2in]{UT-logo2.png}}
+
+\label{fig:figure1}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[t]{0.5\linewidth}
+\centering 
+\vskip 0.2cm
+\textcolor{orange}{\huge \bf CASE STUDY}
+\vskip 0.2cm 
+{\Large \bf Modeling and Simulation}
+\vskip 0.2cm 
+{\Large \bf Dr. Xueping Li }
+
+\end{minipage}
+\end{figure}
+{\bf
+\begin{tabular}{ll}
+%Course Section:	& IE 526 \\
+\textcolor{orange}{------------------------------------------------------------------------------------------------------------------------------}
+\end{tabular}
+}
+
+%%\vskip 0.3in
+
+\begin{center}
+{\textcolor{orange}{ \bf Case Study: Advanced Use of Agent Types \& Parameters (Attributes)}}
+\end{center}
+\vskip 0.2in
+
+%\begin{enumerate}
+
+%\item 
+
+\textcolor{orange}{\bf Goal::} \textit{To learn the following methods/techniques:}\\
+\begin{itemize}
+
+\item Define Agent (Entity) Type and attributes. Collect TIS through this method. Collect ``exact'' statistics for Time Average of WIP and Average TIS. 
+\item Basic debugging techniques. \texttt{traceln()}
+\item Define functions
+\item Export/import data files via \texttt{file} module
+\item ResourcePool module
+\end{itemize}
+
+
+\vskip 0.3in
+
+\textcolor{orange}{\bf Problem Statement:}  Two types of customers, regular and VIP, arrive to a service station, following exponential interarrival times with mean 1 and 5 minutes, respectively.  There is a single queue, in which the VIP customers will be served first. (Note that this is not FIFO, but ``priority''-based.) The actual service station has two parallel desks. The service time for regular \& VIP customers are \texttt{uniform(2,4)} and \texttt{uniform(1,2)}, respectively.  \\
+
+\vskip 0.2in
+Find out the average cycle time for the two types of customers. 
+
+\vskip 0.2in
+Build a model and run 160 hours (assuming 7/24/365).
+
+\vskip 0.2in \textcolor{orange}{Quick tips:}
+\begin{itemize}
+\item Define a single ``Customer'' agent type. Add parameters ``type'' and ``service\_time''. Use \texttt{agent.service\_time} to differentiate them. 
+\item Assign ``agent.type = 1'' and ``agent.type = 5'' for regular/VIP customers, respectively. At the ``queue'', choose ``Advanced'' / ``Priority-based''. 
+\item The above method is preferred! The method below is for illustration purpose.
+\item Define ``RegularCustomers'' and ``VIPCustomers'' agent types. 
+\item Define a function ``fGetPriority(a Agent)'' to find out the type. Such as: \\
+\tt{int p=0; 
+
+//if regular \\
+if (a instanceof RegularCustomers) \\
+   p =  (int)(((RegularCustomers) a).pPriority); \\
+//if VIP \\   
+if (a instanceof VIPCustomers)   \\
+	p =  (int)(((VIPCustomers) a).pPriority);\\
+
+return p;}
+\end{itemize}
+\begin{itemize}
+\item Use \texttt{file.println()} method.
+\item Use \texttt{traceln(time() + "," + agent.something} to print out some attributes. 
+\end{itemize}
+
+\vskip 0.3in
+\textcolor{orange}{\bf Handout Companion:} Screencasts will be provided, along with ``in-class models''.  (``AdvDiffTypes'' \& ``Agent\_Attributes'').
+
+
+\end{document}
+

@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage[top=1.03in, bottom=0.51in, left=0.93in, right=0.92in]{geometry}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6} 
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}  
+\usepackage{pdfpages}
+
+%wrapfig
+\usepackage{wrapfig}
+\usepackage{lipsum}  % generates filler text
+
+\renewcommand{\familydefault}{\sfdefault} 
+
+\renewcommand{\labelenumi}{\Roman{enumi}. }
+
+\begin{document}
+\definecolor{orange}{rgb}{0.9648,0.4960,0}
+
+\begin{figure}[ht]
+\begin{minipage}[t]{0.40\linewidth}
+\centering
+\raisebox{-\height}{\includegraphics[width=2in]{UT-logo2.png}}
+
+\label{fig:figure1}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[t]{0.5\linewidth}
+\centering 
+\vskip 0.2cm
+\textcolor{orange}{\huge \bf CASE STUDY}
+\vskip 0.2cm 
+{\Large \bf Modeling and Simulation}
+\vskip 0.2cm 
+{\Large \bf Dr. Xueping Li }
+
+\end{minipage}
+\end{figure}
+{\bf
+\begin{tabular}{ll}
+%Course Section:	& IE 526 \\
+\textcolor{orange}{------------------------------------------------------------------------------------------------------------------------------}
+\end{tabular}
+}
+
+%%\vskip 0.3in
+
+\begin{center}
+{\textcolor{orange}{ \bf Case Study: Modeling and Simulation of A Single Server System (\#1)}}
+\end{center}
+\vskip 0.2in
+
+%\begin{enumerate}
+
+%\item 
+
+\textcolor{orange}{\bf Goal::} \textit{To learn the following methods/techniques:}\\
+\begin{itemize}
+\item Process Modeling Library: source, queue, delay, sink, select output, time measure start/end, service, etc.
+\item Presentation and Analysis Libraries.
+\item Define variables and display its value.
+\item Collect statistics such as Time in System (TIS), Average Waiting Time in Queue (AWTQ), Time Average Number of parts in Queue (TANQ), Working in Process (WIP), utilization, etc.
+Use Time Measure Start/End to collect TIS/AWTQ and display a histogram. Use Statistics to collect discrete/continuous performance measures. 
+\item Make plots such as histogram plot, time plot, etc.
+\item Basic animation: status of the machine, queue, delay, etc. through Space Markups. 
+\item Define Agent (Entity) Type and attributes. Collect TIS through this method. 
+\item Show individual TIS/WTQ plots. 
+\item Collect histogram data manually.
+\end{itemize}
+
+
+\vskip 0.3in
+
+\textcolor{orange}{\bf Problem Statement:}  Simulate a single machine system in which a drilling machine processes incoming parts that arrive to the system at the rate of 2 per minutes. The processing time follows a triangular distribution with minimum 1, maximum 6, and mode 3.   \\
+
+\begin{figure}[htbp]
+\begin{center}
+	\includegraphics [width=0.50\textwidth] {mm1.png}
+\caption{``M/M/1 System'':  Simple Processing}
+\label{fig:sp}
+\end{center}
+\end{figure}
+
+\vskip 0.3in
+
+\textcolor{orange}{\bf Phase 1:} Build a bare bone model and run the model. Configure a simulation run and run settings including time and randomness. 
+
+\vskip 0.3in
+
+\textcolor{orange}{\bf Phase 2:} Collect basic statistics such as WIP, TIS, AWTQ, Queue length, TANQ. Display results via Presentation toolbox. 
+  
+\vskip 0.3in
+
+\textcolor{orange}{\bf Phase 3:} Add time plots for WIP, TIS, etc. Add histogram plots for WIP, TIS, WTQ, etc. 
+
+\vskip 0.3in
+
+\textcolor{orange}{\bf Phase 4:} Add basic animation including queue, process/delay, busy/idle of the machine etc. \textit{Discussion}: will animation change the model output?
+
+\vskip 0.3in
+
+\textcolor{orange}{\bf Phase 5:} After the drilling process, an inspection station is added where an inspector checks on the parts. Historical data shows that about 92\% of the parts passed the inspection while
+8\% failed. The failed parts will be sent back to the waiting area along with other incoming parts to be processed by the machine. However, the processing time takes about 8 to 12 minutes for these parts because 
+this is considered as "re-work". What's impact to the system performance compared to previous models? What if we have 5 parallel machines while the arrival rate is 1 per minute?
+
+\end{document}
+
