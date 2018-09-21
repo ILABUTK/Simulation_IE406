@@ -1,0 +1,352 @@
+\documentclass{article}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage[top=1.03in, bottom=0.51in, left=0.93in, right=0.92in]{geometry}
+
+\usepackage{color}
+%\usepackage[dvipsnames]{xcolor}
+
+\usepackage{url}
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6} 
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}  
+\usepackage{pdfpages}
+
+%wrapfig
+\usepackage{wrapfig}
+\usepackage{lipsum}  % generates filler text
+
+\renewcommand{\familydefault}{\sfdefault} 
+
+\renewcommand{\labelenumi}{\Roman{enumi}. }
+
+\begin{document}
+\definecolor{orange}{rgb}{0.9648,0.4960,0}
+
+\begin{figure}[ht]
+\begin{minipage}[t]{0.40\linewidth}
+\centering
+\raisebox{-\height}{\includegraphics[width=2in]{UT-logo2.png}}
+
+\label{fig:figure1}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[t]{0.5\linewidth}
+\centering 
+\vskip 0.2cm
+\textcolor{orange}{\huge \bf HOMEWORK}
+\vskip 0.2cm 
+{\Large \bf IE 406: Simulation}
+\vskip 0.2cm 
+{\Large \bf Fall 2016}
+\vskip 0.2cm 
+{\Large \bf Dr. Xueping Li}
+
+\end{minipage}
+\end{figure}
+{\bf
+\begin{tabular}{ll}
+%Course Section:	& IE 406 \\
+\textcolor{orange}{------------------------------------------------------------------------------------------------------------------------------}
+\end{tabular}
+}
+
+%%\vskip 0.3in
+
+\begin{center}
+{\textcolor{orange}{ \bf Homework Assignment (\#3)}}
+\end{center}
+\vskip 0.2in
+
+%\begin{enumerate}
+
+%\item 
+
+\textcolor{orange}{\bf Goal::} \textit{{To assess the following: making plots; collecting TIS, WIP, AWTQ, ATIS; embedded statistics (Queue); using variables; using calendar; basic animation; etc.} }\\
+
+\textcolor{orange}{\bf 1:}  Simulate the check-in process at a clinic. The clinic operates from 8am to 5pm, Monday through Friday. The patient arrival rate is estimated at one patient every two minutes. The check-in process takes about five to ten minutes while historical data shows that on average it takes seven minutes. Currently there are three check-in staffs who call the patients at the waiting room when they are available. \\
+
+Simulate the process with animation of the waiting process and the idle/busy of the staffs. Make plots of the WIP (work-in-process) over time, the number of people waiting in the waiting room over time, the average waiting time over time, and the average time in system (TIS) so far over time. Make histograms for TIS and waiting time in queue. Simulate one day of the system and report 1) the average waiting time in queue; 2) average time in system; 3) time average of number of patients waiting in the queue and  4) number of patients checked in. Remember to use random seed number 1. \\
+
+\textit{\color{cyan}{Open question}}: how many check-in staffs are needed if we want the patient waiting time is less than 8 minutes? (You may relax the random seed number here, meaning it (AWTQ $\leq$ 8min) holds true for almost all the instances/runs.) How about less than 2 minutes?
+
+\vskip 0.3in
+
+%\item 
+\textcolor{orange}{\bf 2:} Five identical machines operate independently in a small shop. Each machine is up (i.e., works) for between 7 and 10 hours (uniformly distributed) and then breaks down. There are two repair technicians available, and it takes one technician between 1 and 4 hours (uniformly distributed) to fix a machine; only one technician can be assigned to work on a broken machine even if the other technician is idle. If more than two machines are broken down at a given time, they form a (virtual) FIFO ``repair'' queue and wait for the first available technician. A technician works on a broken machine until it is fixed, regardless of what else is happening in the system. All uptimes and downtimes are independent of each other. Starting with all machines at the beginning of an ``up'' time, simulate this for 160 hours and observe the time-average number of machines that are down (in repair or in queue for repair), as well as the utilization of the repair technicians as a group; put your results in a text box in your model. Animate the machines when they are either undergoing repair or in queue for a repair technician, and plot the total number of machines down (in repair plus in queue) over time. ({\color{cyan}{HINT}}: Think of the machines as ``customers'' and the repair technicians as ``servers'' and note that there are always five machines floating around in the model as they never leave.)        
+\vskip 0.3in
+
+\textcolor{orange}{\bf 3:}  In science museums, you'll often find what's called a probability board (also known as a quincunx). This is like a big, shallow, tilted baking pan with a slot at the midpoint of the top edge through which marbles roll, one at a time, from a reservoir outside the board; Just below the slot is a fixed peg, which each incoming marble hits and causes the marble to roll left or right off; assume that you have tilted the board so that there's an equal chance that the marble will roll left vs. right (interpret ``left'' and ``right'' from your viewpoint as you look at the board from in front of it, which is the opposite from the marbles' viewpoint as they dive down the board nose first on their stomachs). Below this peg is a row of two pegs, parallel to the top edge of the board but offset horizontally from the first peg so that the two pegs in this second row are diagonally arranged below the first peg, as in the picture.
+\begin{wrapfigure}{l}{0.3\textwidth}
+\centering
+\includegraphics[width=0.25\textwidth]{quincunx.png}
+\caption{\label{fig:quincunx}A quincunx illustration.}
+\end{wrapfigure}
+let's say the reservoir has $k$ marbles in it. \\
+
+ Assume that the board's tilt angle, the peg spacing, the marbles' mass, and the gravitational field of the host planet are just right so that each marble will next hit exactly one of the two pegs in the second row (which peg it hits is determined by whether it rolled left or right off of the first peg). The marble will next roll left or right off of whichever peg it hits in the second row (again, assume a 50-50 chance of rolling left vs. right). The next parallel row of pegs has three pegs in it, again offset so that each marble will hit exactly one of them and roll left or right, again with equal probabilities. This continues through the last row; let's say that the number of rows is n so that the last row has n pegs in it (n =  6 in the picture, counting the first peg at the top as its own row). After rolling off of a peg in the last row, the marble will land in exactly one of n + 1 bins arranged diagonally under the last row of pegs. Create a simulation model to simulate a probability board with n = 6 rows of pegs and k = 1500 marbles in the reservoir. Animate the marbles bouncing down the board, and also animate the number of marbles accumulating in the bins at the bottom. In addition, count the number of marbles that land in each of the 7 bins. The proportion of marbles landing in each bin estimates the probabilities of what distribution? What if somebody opens a window to the left of the board and a wind comes in to blow the marbles toward the right as they roll, so that there's a 75\% (rather than 50\%) chance that they'll roll to the right off of each peg?   \\
+
+\vskip 0.3in 
+
+\textcolor{orange}{\bf Submission Guideline:} Submit your files to Canvas \& email your homework to \url{ie406.utk@gmail.com}. 
+For emailing, when you have multiple files, please zip them
+into one single file. 7zip (\url{http://www.7-zip.org/}) is recommended and .7z file extension is suggested. Note that occasionally, UTK email system may filter emails with attachments, especially when attachments are like .zip and/or with executable files. You should receive an email notification if your email goes through. 
+%\vskip 0.2in
+%Also, please submit your homework to a shared Google Drive at \url{https://drive.google.com/a/utk.edu/folderview?id=0B92X26p0Cma-X21KUXFQdWlhdXM&usp=sharing}. Note that you must use your UTK email/password to login into Google Drive to access this folder.  You will see something like``HW\#3'' under the folder. Create a folder like ``Netid\_Your Name'' and upload your unzipped files to that folder.  Do feel free to set the permission of your folder such that no one but yourself, Dr. Li and the TA can access it.
+
+
+
+% 
+%This course focuses on the construction of simulation models of real or
+%  conceptual systems using the simulation software package \textbf{AnyLogic} 
+%  while covering the analytical aspects of utilization of simulation models
+%   and optimization techniques. Both \textbf{discrete event models} and \textbf{agent-based 
+%   models} will be covered. \textbf{System dynamics models} will be briefly introduced.
+%   
+%\item \textcolor{orange}{\bf VALUE PROPOSITION:} Simulation is a powerful tool
+%to analyze complex, dynamic and stochastic systems.  Ability to design, analyze, and
+%interpret simulation models for such systems is crucial in making efficient business and
+%  engineering decisions. This course will address the topics that are
+%  essential for developing such skills. 
+%
+%\item \textcolor{orange}{\bf OBJECTIVES:} On completion of this course
+% students will be able to correctly \textbf{design, analyze and interpret} the results
+%  of computer simulation experiments using simulation software package. Specifically, they will: 
+%  \begin{itemize}
+%\item In general, be able to build simulation models using a computer software package;
+%\item Understand the assumptions, strengths and weaknesses of simulation models;
+%\item Analyze and translate problems into a form suitable for applying simulation strategies; and 
+%\item Validate simulation models and optimize the system.
+%\end{itemize}
+%
+%
+%\item	\textcolor{orange}{\bf LEARNING ENVIRONMENT:} 
+%
+%%% [This section provides students with the instructor’s vision of what take place in the class.  It includes information about the methods of instruction, the role of the student, the role of the faculty member, what will take place in class, out of class, the tools for learning, etc. This section provides an opportunity to present the notion of shared responsibility for learning.  A useful table with examples is provided below: 
+%
+%\begin{tabular}{l|l}
+%\hline
+%Students Responsibility & Instructors Responsibility \\
+%\hline
+%\hline
+% Be prepared for all classes & Be prepared for all classes \\
+%\hline 
+%Be respectful of others & Be respectful of the students \\
+%\hline
+%Actively contribute to the learning activities in class & Create and facilitate meaningful learning activities \\
+%\hline
+%Abide by the UT Honor Code & Evaluate all fairly and equally \\
+%\hline
+%\end{tabular}
+%
+%
+%\item \textcolor{orange}{\bf TEXTBOOK (OPTIONAL) \& REFERENCES:} 
+%
+%{\bf AnyLogic 7 in Three Days}. Ilya Grigoryev. ISBN-10: 150893374X.\\
+%{\bf The Big Book of Simulation Modeling}. Andrei Borshchev. ISBN-13: 978-0989573177.\\
+%AnyLogic web site \url{http://www.anylogic.com}{}\\
+%Winter Simulation Conference \url{http://www.wintersim.org}
+%Institute of Industrial and Systems Engineers (IISE) Annual Conference \url{http://iienet2.org}
+%
+%{\bf Software:} AnyLogic v7.3.1/v.7.3.5. \\
+%RESERVED MATERIALS will be made available at the library or course companion web sites as our course develops.
+%
+%\item \textcolor{orange}{\bf TECHNOLOGICAL RESOURCES:} 
+%
+% %% [This section includes information about course Blackboard Site, and any type of research / reference materials or technology (i.e., Online@UT, LiveText, or a bibliography) the student will need to use for the classroom.]
+%
+%All homework assignments and lecture slides will be posted on the course Blackboard Site or shared Google Drive folder. 
+%
+%\item \textcolor{orange}{\bf COURSE REQUIREMENTS, ASSESSMENT AND EVALUATION METHODS:} 
+%
+%\begin{enumerate}
+%
+%
+%\item Students are responsible for announcements and material covered
+%  in class.
+%
+%
+%\item {\bf Homework and Quizzes.} Homework problems will be assigned
+%   based on the covered material. Quizzes will be pop quizzes. 
+%Assignments are due at the beginning of the class. No late work is accepted. Assignments are individual efforts based unless advised otherwise.  
+%  
+%
+%\item {\bf Exams.} No written exams! Instead, you will be working on a team-based term project (rubrics will be given).
+% Mini projects may be given as a take-home exam or a quiz. 
+%
+%
+%\item {\bf Attendance} is not mandatory. However, it is {\bf extremely important} to succeed in this course.
+%
+%\item {\bf Extra credit. } Each student may receive up to 3 extra credit points towards their final grade during the lecture activities
+%  (i.e., class engagement, pop-quiz, grade lottery).  {\bf No extra credit} will be given for
+%  any additional work or re-doing assignments.
+%
+%\item {\bf Grading } will be based on homework assignments (30\%), quizzes (30\%), and term projects (40\%). 
+%
+%%% To calculate your grade for the class, the following formula
+%%%   will be used:
+%
+%%% $$
+%%% G = 0.25 \cdot \frac{G_{Q}}{7} + 0.25\cdot G_{exam1} + 0.25 \cdot G_{exam2} + 0.25 \cdot G_{exam2} 
+%%% $$
+%
+%%%   where $G_{Q}$  is the sum of all points received for the quizzes (0 to 700),
+%
+%%%  $G_{exam1}$ is the first exam grade, $G_{exam2}$ and $G_{exam3}$ are the second and third exam grades respectively. 
+%
+%%% \vskip 0.3in
+%%%   For example, if you got 550 points out of 700 possible for your
+%%%   homework assignments, 87 points on the first exam, 55 points on the
+%%%   second exam, and 95 points on the final exam, then you final grade
+%%%   will be:
+%
+%%%   \begin{equation*}
+%%%     G = 0.25 * 550/7 + 0.25 * 87 + 0.25 * 55 + 0.25 * 95 = 78.89
+%%% \end{equation*}
+%
+%\item {\bf Grading scale}: A (100-90), B+ (90-86), B(85-80), C+ (80-75), C (75-70), D (70-60), F (60-0)
+%%\begin{tabular}{|c|c|c|c|c|c|}
+%%\hline
+%%& &A&100-91&A-&91-89\\
+%%\hline
+%%B+& 89-86 &B& 86-82 &B--& 82-80\\
+%%\hline
+%%C+& 80-77 &C& 77-72 &C--& 72-70\\
+%%\hline
+%%D+&70-67 &D& 67-62 &D--& 52-60\\
+%%\hline 
+%%F & 59-0 & & & & \\
+%%\hline
+%%
+%%\end{tabular}
+% 
+%%\item Cell phones, loud music and noisy behavior  are not allowed.
+%\item {\bf Policy:} When taking a quiz or homework assignment, cheating in any form will result in a grade of 0 for that exam. Plagiarism is defined as ``to steal and pass off (the ideas or words of another) as one's own, to use (another's production) without crediting the source'' and ``to commit literary theft: present as new and original an idea or product derived from an existing source'' as on Merriam-Webster. Online \url{http://www.m-w.com}. 
+%
+%\end{enumerate}
+%
+%%% [This section includes class attendance and tardiness policy, evaluation methods and grading system, i.e., rubrics, percentages, tests, quizzes, weighting, curve or UT grading distribution, grade appeals to instructor, etc.; it may also include the policy for incompletes and withdrawals.]  
+%
+%%% Exams and quizzes (how many, what kind, dates, final exam period, missed exams/makeup exams, etc.);
+%%% Assignments/problem sets/projects/reports/research papers (general info, assessment criteria, format, policy for late or missed assignments);
+%%% Other assignments (e.g., posting comments to discussion board) and extra credit opportunities).
+%
+%\item \textcolor{orange}{\bf HOW TO BE SUCCESSFUL IN THIS CLASS:} 
+%  To maximize your success in this class:
+%\begin{itemize}
+%\item Invest some time and do your own work
+%\item Attend every class 
+%%\item Take notes and go over them before the next class
+%\item Practice, practice, practice! 
+%\item Attend office hours for extra help
+%\item Ask questions during and after the class
+%\item Discuss with your classmates / teammates
+%\end{itemize}
+%
+%
+%%% [This could span from general guidelines (e.g., estimated amount of time to spend on preparation, assignments, participation in class discussion, use of supplemental teaching materials, etc.) to more sophisticated rubrics related to student performance on various evaluation measures (e.g., exams, assignments, projects.]
+%
+%%% \item \textcolor{orange}{\bf COURSE FEEDBACK:} [This section may include methods of feedback to faculty member, such as formative feedback mechanisms during the semester.]
+%
+%%% \item \textcolor{orange}{\bf UNIVERSITY POLICIES:} 
+%
+%%% {\bf Please see the Campus Syllabus} (last page) for important information about the University Policies common across all courses at UT.
+%
+%%% {\bf Freedom to
+%%%   Learn.}  The responsibility to secure and to respect general
+%%%   conditions conducive to the freedom to learn is shared by all
+%%%   members of the academic community. The university welcomes and
+%%%   honors people of all races, creeds, cultures, and sexual
+%%%   orientations, and values intellectual curiosity, pursuit of
+%%%   knowledge, and academic freedom and integrity.
+%
+%
+%%% {\bf Final Exam Policy.} Final exams must be given during the final exam period at
+%%% the scheduled time, although alternative uses of the scheduled exam period may
+%%% be designated by the instructor.
+%%% \begin{itemize}
+%%% \item Students are not required to take more than two written exams on any
+%%% day. The instructor(s) of the last non-departmental exam(s) on that day
+%%% must reschedule the student's exam during the exam period. It is the
+%%% obligation of students with such conflicts to make appropriate
+%%% arrangements with the instructor at least two weeks prior to the end of
+%%% classes.
+%%% \item All final exams must be given during the final exam period at the
+%%% scheduled time, although alternative uses of the scheduled exam period
+%%% may be designated by the instructor.
+%%% \item No in-class written quizzes or tests counting more than 10 percent of
+%%% the semester grade may be given the last five calendar days prior to the
+%%% study period.
+%%% \end{itemize}
+%
+%
+%
+%
+%%% [This required section includes information about discrimination, scholastic dishonesty, cheating, and plagiarism policies (e.g., honor statement, consequences, examples, etc.). The honor statement is included on the Campus Syllabus available on the Provost and TennTLC websites, and the online UT catalog.]
+%
+%%%\item \textcolor{orange}{\bf STUDENTS WITH DISABILITIES POLICY:} Please see the Campus Syllabus below.
+%
+%%% \item \textcolor{orange}{\bf DEPARTMENT OR PROGRAM MISSION STATEMENT:} [OPTIONAL SECTION]
+%
+%\item   \textcolor{orange}{\bf  THE INSTRUCTOR RESERVES THE RIGHT TO REVISE, ALTER AND/OR AMEND THIS SYLLABUS, AS NECESSARY.  STUDENTS WILL BE NOTIFIED IN WRITING AND/OR BY EMAIL OF ANY SUCH REVISIONS, ALTERATIONS AND/OR AMENDMENTS.}
+%\newpage
+%\item \textcolor{orange}{\bf COURSE OUTLINE/ASSIGNMENT/UNITS OF
+%  INSTRUCTION OR CLINIC SCHEDULE:}
+%
+%The following is a very tentative schedule for the course - we will
+%probably change things as we proceed depending upon the progress we
+%are able to make and the feedback from the students.
+%\vskip 0.25in
+%{
+%\centering
+%\begin{tabular}[c]{llll|}
+%\hline
+%\textcolor{blue}{} & \textcolor{blue}{Lecture Topics} & \textcolor{blue}{Time}\\
+%\hline
+%- & Introduction to simulation \& demos  & 1/2wk\\ 
+%- & Fundamental simulation concepts (HW\#1)  & 1/2wk\\
+%- & Simulation concepts \& statistics review & 1wk \\
+%- & Random number generation (Quiz\#1, HW\#2) & 1/2wk \\
+%- & A guided tour to AnyLogic (M/M/1 model: TIS using TimeMeasure module, Histogram, View etc.) & 1-2 wks \\
+%- & AWTQ, WIP, Plots, collect statistics, animation, etc. HW\#3 , Quiz\#2& \\
+%- & Modeling basic operations and inputs (Enterprise process models, Case Study PP/SP) & 2-3wks\\
+%- & Modeling detailed operations (Schedules, Network, Variables, 3D animation, etc.)  HW\#4 & 2-3 wks\\
+%- & Statistical output analysis & 1wk\\
+%- & OptQuest for optimization and replications. Mini-project\#1 & 1wk\\
+%- & Advanced topics (agent-based and system dynamics models) and case studies. Take-home quiz\#1. & 1-2 wks\\
+%- & Term project presentation and demonstrations & 1-2wks\\
+%\hline
+%\end{tabular}
+%}
+
+  %% [This section typically includes a
+  %% table with the tentative calendar, topics, and assignments, dates
+  %% for exams and due dates, special events, etc.]
+
+
+%% \item [EACH INSTRUCTOR MAY INSERT MISCELLANEOUS COURSE ELEMENTS HERE,
+%%   AS DESIRED – NUMBERED IN SEQUENCE]: [OPTIONAL SECTION(S)]
+
+%% \item \textcolor{orange}{\bf IMPORTANT DATES IN THE ACADEMIC CALENDAR
+%%   FALL 2013:} 
+
+%% \begin{tabular}{l|l}
+%% Last Day to Add Classes & \\
+%% Martin Luther King Day & \\
+%% Labor Day (no classes) & \\ 
+%% Last Day to Drop Course without WD & \\
+%% Last Day to Drop Course without ``F'' & October \\
+%% Spring Break/Fall Break (no classes) & October \\
+%% Last Day of Classes & \\
+%% Final Exams & \\
+%% \end{tabular}
+
+
+
+%% \item \textcolor{orange}{\bf  COURSE PLAN/UNIT PLANS:} [OPTIONAL SECTION/LANGUAGE.]
+%\end{enumerate}
+
+%%%\includepdf{CAMPUS-SYLLABUS.pdf}
+
+\end{document}
+

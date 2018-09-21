@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage[top=1.03in, bottom=0.51in, left=0.93in, right=0.92in]{geometry}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6} 
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}  
+\usepackage{pdfpages}
+
+%wrapfig
+\usepackage{wrapfig}
+\usepackage{lipsum}  % generates filler text
+
+\renewcommand{\familydefault}{\sfdefault} 
+
+\renewcommand{\labelenumi}{\Roman{enumi}. }
+
+\begin{document}
+\definecolor{orange}{rgb}{0.9648,0.4960,0}
+
+\begin{figure}[ht]
+\begin{minipage}[t]{0.40\linewidth}
+\centering
+\raisebox{-\height}{\includegraphics[width=2in]{UT-logo2.png}}
+
+\label{fig:figure1}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[t]{0.5\linewidth}
+\centering 
+\vskip 0.2cm
+\textcolor{orange}{\huge \bf In-Class Quiz}
+\vskip 0.2cm 
+%{\Large \bf IE 526: Advanced Applications of Systems Modeling and Simulation}
+{\Large \bf IE 406:  Simulation}
+
+\vskip 0.2cm 
+{\Large \bf }
+
+\vskip 0.2cm 
+{\Large \bf Dr. Xueping Li}
+
+
+\end{minipage}
+\end{figure}
+{\bf
+\begin{tabular}{ll}
+%Course Section:	& IE 526 \\
+\textcolor{orange}{------------------------------------------------------------------------------------------------------------------------------}
+\end{tabular}
+}
+
+%%\vskip 0.3in
+
+\begin{center}
+{\textcolor{orange}{ \bf Simulate ``Up-Way''! (In-class Quiz)}}
+\end{center}
+
+%\begin{enumerate}
+
+%\item 
+
+\vskip 0.2in
+
+\textcolor{orange}{\bf Problem Statement:}  Simulate a fast food restaurant "Up-Way". Customers arrive to the restaurant with an average interarrival time about 4.5 minutes. There are two staff members in the restaurant. One (Amy) is responsible for taking orders from customers and preparing the food. This step takes about 2 to 5 minutes. Historical data shows that the average is about 3 minutes. Then, the customer moves to the checkout station where he/she get his/her drinks and checks out with another staff member (Bob). This usually takes about 1.5 to 4 minutes. \\
+
+\vskip 0.15in
+\textcolor{orange}{\bf Requirements:}
+\vskip 0.1in
+
+\textcolor{orange}{\bf 1:} Build a simulation model to simulate the operation of "Up-Way" for 720 hours (assuming it operates 7/24/365 and Amy/Bob work all the time). Collect statistics on the \textit{time average number of customers} in the system; \textit{average waiting time in the queue} with Amy and the queue with Bob, respectively; the utilization of the two staff members, respectively; and display them in a textbox. Make a time plot for Waiting Time in Queue (for Amy and Bob) and Time in System for each customer. Use random seed 1. 
+
+\vskip 0.15in
+\textcolor{orange}{\bf 2:} Add basic animation to show 1) customers waiting in the queues; 2) busy/idle of the staff members. 
+
+%\vskip 0.15in
+%\textcolor{orange}{\bf 3:} Capture screenshots (Make sure they are readable! Crop your full screen if needed!) and put into a word document to clearly show the model and the required items in \#1 and \#2. Upload it as a PDF (or PNG/JPEG) file. 
+
+\vskip 0.15in
+\textcolor{orange}{\bf Tip:} Time is of essence here. It is O.K. not to change the name of the modules etc. but simply follow our ``best practice''. Name your model file like ``Q\#2\_Your Name.alp''. Use $1$ as the ``random number seed''.
+
+\vskip 0.15in
+\textcolor{orange}{\bf Submission Guideline:} Please submit your work to Canvas. 
+
+
+\end{document}
+

@@ -1,0 +1,104 @@
+\documentclass{article}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage[top=1.03in, bottom=0.51in, left=0.93in, right=0.92in]{geometry}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6} 
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}  
+\usepackage{pdfpages}
+
+%wrapfig
+\usepackage{wrapfig}
+\usepackage{lipsum}  % generates filler text
+
+\renewcommand{\familydefault}{\sfdefault} 
+
+\renewcommand{\labelenumi}{\Roman{enumi}. }
+
+\begin{document}
+\definecolor{orange}{rgb}{0.9648,0.4960,0}
+
+\begin{figure}[ht]
+\begin{minipage}[t]{0.40\linewidth}
+\centering
+\raisebox{-\height}{\includegraphics[width=2in]{UT-logo2.png}}
+
+\label{fig:figure1}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[t]{0.5\linewidth}
+\centering 
+\vskip 0.2cm
+\textcolor{orange}{\huge \bf Take-Home Quiz/Mini-Project}
+\vskip 0.2cm 
+%{\Large \bf IE 526: Advanced Applications of Systems Modeling and Simulation}
+{\Large \bf IE 406:  Simulation}
+
+\vskip 0.2cm 
+{\Large \bf } %Spring 2018
+
+\vskip 0.2cm 
+{\Large \bf Dr. Xueping Li}
+
+
+\end{minipage}
+\end{figure}
+{\bf
+\begin{tabular}{ll}
+%Course Section:	& IE 526 \\
+\textcolor{orange}{------------------------------------------------------------------------------------------------------------------------------}
+\end{tabular}
+}
+
+%%\vskip 0.3in
+
+\begin{center}
+{\textcolor{orange}{ \bf Modeling and Simulation of A Psychology Clinic}}
+\end{center}
+
+%\begin{enumerate}
+
+%\item 
+
+\vskip 0.2in
+
+%\begin{wrapfigure}{l}{0.8\textwidth}
+\begin{figure}[!htpb]
+\centering
+\includegraphics[width=0.8\textwidth]{clinic_l.png}
+\caption{\label{fig:clinic}Layout of the Clinic.}
+\end{figure}
+
+%\end{wrapfigure}
+
+\textcolor{orange}{\bf Problem Statement:}  See Figure \ref{fig:clinic} for the layout of the clinic. Legends:
+\begin{itemize}
+\item N1: Nurse station (1 check-in/check-out nurse: Amber; 3 nurse practitioners (NPs: Julie, Beth, and Gina)
+\item D1: Psychologist station (3 psychologists: Drs. Stanley, Moe, Philips)
+\item W1\_C: Waiting area before check-in (also for check-out).
+\item W2\_D: Waiting area after check-in, while waiting for NPs/Psychologists
+\item B1 - B3: Treatment room 1-3
+\item B4 - B6: Treatment room 4-6
+\item S: Storage room (archives of medical records etc.)
+\end{itemize}
+
+
+Patients arrive to the clinic with the arrival rate 0.1 per minute. They wait at the W1\_C area to be checked in at the N1 station with Amber. It takes about 5 to 12 minutes to check in. After checked in, patients go to W2\_D to wait for NPs. When available, an NP will first get a patient's medical record \& other documents from the storage room S. Then she will escort the patient to a treatment room along with his/her documents. She will update the medical records and process some other paperwork. It takes about 10 to 18 minutes. Then the NP returns to her station and leaves the patient in the treatment room. When available, a psychologist will come to the room to treat the patient. It takes about 25 minutes to 65 minutes; but most of the cases it takes about 35 minutes. When it is done, the psychologist brings the medical record to S and then goes back to D1 and the patient checked out at W1\_C. The checkout process takes about 3 to 5 minutes. \\
+
+Use ``Network'' modules to simulation this clinic.  Use the Patient/Doctor/Nurse pictures from the Pictures template for patients/psychologists/Amber. Use the ``Person'' picture for NPs. Run the simulation for one month. The clinic runs from 8AM to 5PM, Monday to Friday (As of now, we assume no ``arrivals'' after 5 PM but the clinic will open to serve anyone who arrived before 5PM). \\
+\vskip 0.15in
+\textcolor{orange}{\bf Requirements:} Calculate the average waiting time per patient at W1\_C, W2\_D, treatment rooms, and check-out, respectively; and make plot for these waiting times over time. Calculate the average length of stay (LOS) and WIP. Make plots of for LOS for each patient. Make plots for WIP over time. What observations do you have when you review the simulation results? Where are the bottlenecks? Which recommendations do you have to improve the efficiency of the clinic? \\
+
+\textit{Tips}: 1) You may treat medical records at S as resources and there are ample amount of them (actually 100 will be more than enough since only 6 patients can be treated (using medical records) at the same time). 2) The Ophthalmology example model is a good source to learn how to model the processes here. \\
+
+\vskip 0.1in
+
+\vskip 0.15in
+\textcolor{orange}{\bf Submission Guideline:} Please submit your work to Canvas \& \url{ie406.utk@gmail.com}. 
+
+
+\end{document}
+
