@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage[top=1.03in, bottom=0.51in, left=0.93in, right=0.92in]{geometry}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6} 
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}  
+\usepackage{pdfpages}
+
+%wrapfig
+\usepackage{wrapfig}
+\usepackage{lipsum}  % generates filler text
+
+\renewcommand{\familydefault}{\sfdefault} 
+
+\renewcommand{\labelenumi}{\Roman{enumi}. }
+
+\begin{document}
+\definecolor{orange}{rgb}{0.9648,0.4960,0}
+
+\begin{figure}[ht]
+\begin{minipage}[t]{0.40\linewidth}
+\centering
+\raisebox{-\height}{\includegraphics[width=2in]{UT-logo2.png}}
+
+\label{fig:figure1}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[t]{0.5\linewidth}
+\centering 
+\vskip 0.2cm
+\textcolor{orange}{\huge \bf CASE STUDY}
+\vskip 0.2cm 
+{\Large \bf IE 406: Simulation}
+\vskip 0.2cm 
+{\Large \bf Spring 2017}
+
+\end{minipage}
+\end{figure}
+{\bf
+\begin{tabular}{ll}
+%Course Section:	& IE 526 \\
+\textcolor{orange}{------------------------------------------------------------------------------------------------------------------------------}
+\end{tabular}
+}
+
+%%\vskip 0.3in
+
+\begin{center}
+{\textcolor{orange}{ \bf Case Study: Inventory Control Policies}}
+\end{center}
+\vskip 0.2in
+
+%\begin{enumerate}
+
+%\item 
+
+\textcolor{orange}{\bf Goal::} \textit{To learn the following methods/techniques:}\\
+\begin{itemize}
+\item Transform a problem of interest into an M\&S problem and build a base model
+\item Use OptQuest to search optimal solutions
+
+\end{itemize}
+
+
+\vskip 0.3in
+
+\textcolor{orange}{\bf Problem Statement:}  \textbf{(s,S) Model}: (s, S) is a minimum/maximum inventory policy.  When the inventory level on-hand falls below a minimum, \textit{s}, the site will generate a request for a replenishment order that will restore the on-hand inventory to a target, or maximum, number, \textit{S}.  When using this policy, the Reorder Point is the minimum, or trigger level.  The Reorder/Order Up To Quantity  is the maximum, or the number to which the inventory level is restored. 
+
+\vskip 0.1in
+  
+  \textbf{(r, Q) Model}: {(r,Q)} is a fixed replenishment point/fixed replenishment quantity inventory policy.  When the inventory level on-hand falls below a certain replenishment point, \textit{r}, the site will generate a replenishment order for a certain quantity, \textit{Q}, of this product.  When using this policy, the Reorder Point field is set as the trigger level.  The Reorder/Order Up To Qty field will be the exact number of units reordered.
+
+\vskip 0.1in
+\textbf{What are the optimal (s,S) or (r, Q)}?
+
+\vskip 0.3in
+
+\textcolor{orange}{\bf Comparison:} The main difference between (s,S) and (r,Q) is that the (s,S) takes into account exactly how far below the reorder level the inventory is when the request for replenishment is generated. 
+\vskip 0.1in
+The (r, Q) policy is appropriate when inventory levels are reviewed continuously. In the case of periodic review, (s, S) policy is required.
+
+\vskip 0.3in
+
+\textcolor{orange}{\bf Case \#1:} Company ``X'' receives demand for its product. The monthly demand follows a Normal distribution with $\mu$ 100 and $\sigma$ 20. The holding cost of the product equals to $h=\$0.33$ per product per day. The lost sale cost is \$66.6 per occurrence. The lead time is $10$ days. The periodic review occurs monthly (30 days). What is the optimal (s,S) for the company?
+
+\newpage
+
+
+\end{document}
+
